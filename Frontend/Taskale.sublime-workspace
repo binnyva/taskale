@@ -517,9 +517,6 @@
 			]
 		]
 	},
-	"buffers":
-	[
-	],
 	"build_system": "",
 	"build_system_choices":
 	[
@@ -632,12 +629,13 @@
 		"side_bar_visible": false,
 		"status_bar_visible": false
 	},
-	"expanded_folders":
-	[
-		"/mnt/x/Data/www/Projects/taskale/taskale"
-	],
 	"file_history":
 	[
+		"/mnt/x/Data/www/Projects/taskale/Frontend/index.html",
+		"/home/binnyva/Scripts/JavaScript/Homie/src/components/NewItem.vue",
+		"/mnt/x/Data/www/Projects/taskale/Frontend/Taskale.sublime-project",
+		"/mnt/x/Data/www/MAD/api/Phoenix.sublime-project",
+		"/mnt/x/Data/www/MAD/madapp/system/Madapp.sublime-project",
 		"/mnt/x/Data/www/Projects/taskale/taskale/.gitignore",
 		"/home/binnyva/.config/syncthing/config.xml",
 		"/mnt/x/Data/www/MAD/madapp/system/application/models/class_model.php",
@@ -760,16 +758,11 @@
 		"/home/binnyva/Scripts/Php/Tools/FOM 80G/Mailer/NACH receipt file Jan-March 2017.csv",
 		"/mnt/x/Data/www/Projects/Madapp/system/application/views/classes/assign.php",
 		"/mnt/x/Data/www/Projects/Madapp/system/application/models/level_model.php",
-		"/mnt/x/Data/www/Projects/Madapp/system/application/models/batch_model.php",
-		"/mnt/x/Data/www/Projects/Madapp/system/application/controllers/batch.php",
-		"/mnt/x/Data/www/Projects/Madapp/DB.txt",
-		"/home/binnyva/Temp/t/j.txt",
-		"/home/binnyva/Ed Support.txt",
-		"/mnt/x/Data/www/Projects/Madapp/system/application/controllers/api.php"
+		"/mnt/x/Data/www/Projects/Madapp/system/application/models/batch_model.php"
 	],
 	"find":
 	{
-		"height": 29.0
+		"height": 41.0
 	},
 	"find_in_files":
 	{
@@ -785,6 +778,12 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			" class=\"new-task-name\"",
+			"showNewTaskDetails",
+			"new-task-details",
+			"newTaskDetails",
+			"top",
+			"newTaskDetails",
 			"/mnt/x/Data/Examined Life",
 			"http://localhost/MAD/madapp/",
 			"0 teachers",
@@ -906,13 +905,7 @@
 			"left_on",
 			"left",
 			"joined_on",
-			"trained",
-			"from_date",
-			"foundation_program_teacher_group_id",
-			"centers_with_fondation_program",
-			"<tr><td>",
-			"get_user_groups",
-			"get_user_groups_of_user"
+			"trained"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -997,14 +990,6 @@
 		"whole_word": false,
 		"wrap": true
 	},
-	"groups":
-	[
-		{
-			"sheets":
-			[
-			]
-		}
-	],
 	"incremental_find":
 	{
 		"height": 29.0
@@ -1012,28 +997,6 @@
 	"input":
 	{
 		"height": 38.0
-	},
-	"layout":
-	{
-		"cells":
-		[
-			[
-				0,
-				0,
-				1,
-				1
-			]
-		],
-		"cols":
-		[
-			0.0,
-			1.0
-		],
-		"rows":
-		[
-			0.0,
-			1.0
-		]
 	},
 	"menu_visible": true,
 	"output.doc":
@@ -1065,7 +1028,6 @@
 		"height": 0.0
 	},
 	"pinned_build_system": "",
-	"project": "Taskale.sublime-project",
 	"replace":
 	{
 		"height": 54.0
@@ -1077,6 +1039,14 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"Cal",
+				"src/components/Calendar/CalendarMonth.vue"
+			],
+			[
+				"Month",
+				"src/components/Calendar/CalendarMonthDayItem.vue"
+			],
 			[
 				"api",
 				"application/controllers/api.php"
@@ -1580,14 +1550,6 @@
 			[
 				"imp",
 				"application/models/impact_survey_model.php"
-			],
-			[
-				"impa",
-				"application/models/impact_survey_model.php"
-			],
-			[
-				"le",
-				"application/models/level_model.php"
 			]
 		],
 		"width": 0.0
@@ -1618,7 +1580,6 @@
 		],
 		"width": 0.0
 	},
-	"selected_group": 0,
 	"settings":
 	{
 		"xdebug":

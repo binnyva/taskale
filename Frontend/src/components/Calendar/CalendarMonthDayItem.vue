@@ -11,7 +11,7 @@
     <div class="day-tasks" :key="dayKey">
       <draggable :list="tasks" item-key="id" group="task-list" @change="log"><!-- :TODO: This should be 100% with and height. Otherwise drop is not easy -->
         <template #item="{ element }">
-          <TaskBlock :task="element" class="task" view="day" :newTaskDetails="newTaskDetails"></TaskBlock>
+          <TaskBlock :task="element" class="task" view="day" :onNewTask="onNewTask"></TaskBlock>
         </template>
       </draggable>
     </div>
@@ -29,7 +29,7 @@ export default {
     TaskBlock,
     draggable 
   },
-  props: ["day", "isCurrentMonth", "isToday", "tasks"],
+  props: ["day", "isCurrentMonth", "isToday", "tasks", "onNewTask"],
   data() {
     return {
       dayKey: 0
@@ -42,9 +42,6 @@ export default {
     }
   },
   methods: {
-    newTaskDetails(newTask, pos) {
-      console.log(newTask, pos)
-    },
     saveChanges() {
 
     },

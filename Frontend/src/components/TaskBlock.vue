@@ -7,12 +7,11 @@
 <script>
 export default {
   name: 'TaskBlock',
-  props: ["task", "view", "newTaskDetails"],
+  props: ["task", "view", "onNewTask"],
   methods: {
     sendPosition() {
-      this.newTaskDetails(this.task, {
-        left: this.$refs.block.getBoundingClientRect().left, 
-        top: this.$refs.block.getBoundingClientRect().top
+      this.onNewTask(this.task, {
+        pos: this.$refs.block.getBoundingClientRect()
       })
     }
   },

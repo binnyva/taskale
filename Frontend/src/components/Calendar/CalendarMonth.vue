@@ -27,6 +27,7 @@
         :day="day"
         :is-today="day.date === today"
         :tasks="this.dayTasks[day.date]"
+        :onNewTask="onNewTask"
       />
     </ol>
   </div>
@@ -44,7 +45,7 @@ dayjs.extend(weekday);
 
 export default {
   name: "CalendarMonth",
-  props: ["tasks"],
+  props: ["tasks", "onNewTask"],
   components: {
     CalendarDateIndicator,
     CalendarDateSelector,
