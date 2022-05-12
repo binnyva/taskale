@@ -5,6 +5,12 @@
         Hello world!
       </h1>
 
+      <ul>
+        <li><router-link to="year">Year View</router-link></li>
+        <li><router-link to="month">Month View</router-link></li>
+        <!-- <li><router-link to="day">Day View</router-link></li> -->
+      </ul>
+
     </div>
   </div>
 </template>

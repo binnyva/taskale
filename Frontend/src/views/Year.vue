@@ -1,15 +1,15 @@
 <template>
-  <div class="month">
+  <div class="year">
     <div class="header">
       <h1 class="text-3xl font-bold">
-        Month &gt; May, 2022
+        Year &gt; 2022
       </h1>
     </div>
 
     <div class="content" ref="content">
-      <BlockList :tasks="intentions" :level="`month`"></BlockList>
+      <BlockList :tasks="intentions" :level="`year`"></BlockList>
 
-      <CalendarMonth date="2022-05-01" :tasks="tasks" :onNewTask="onNewTask"></CalendarMonth>
+      <CalendarYear date="2022-05-01" :tasks="tasks" :onNewTask="onNewTask"></CalendarYear>
     </div>
   </div>
 
@@ -23,13 +23,13 @@
 
 <script>
 import BlockList from "../components/BlockList.vue"
-import CalendarMonth from "../components/Calendar/CalendarMonth.vue"
+import CalendarYear from "../components/Calendar/CalendarYear.vue"
 
 export default {
-  name: 'Month',
+  name: 'Year',
   components: {
     BlockList,
-    CalendarMonth
+    CalendarYear
   },
   data() {
     return {
@@ -37,14 +37,14 @@ export default {
       newTask: null,
       newTaskName: "",
       intentions: [{id: 1, name: "MindOS", level: "10year"}, {id: 2, name: "PKM Book", level: "year"}],
-      tasks: [{id: 3, name: "Write Outline", level: "day", from: "2022-05-04 00:00:00"}, {id: 4, name: "Create a mockup", from: "2022-05-04 00:00:00"}]
+      tasks: [{id: 3, name: "Write Outline", level: "day", from: "2022-05-01 00:00:00"}, {id: 4, name: "Create a mockup", from: "2022-06-01 00:00:00"}]
     }
   },
   methods: {
     onNewTask: function(task, details) {
       this.newTask = { ...task };// Clone the object. Or even the task in the intention block will get updated.
       this.showNewTaskArea = true;
-      this.$refs.newTaskArea.style.top = parseInt(details.pos.bottom - 3) + "px";
+      this.$refs.newTaskArea.style.top = parseInt(details.pos.bottom - 4) + "px";
       this.$refs.newTaskArea.style.left = parseInt(details.pos.left) + "px";
       this.$refs.newTaskArea.style.width = ((this.$refs.content.clientWidth / 7) - 7) + "px";
       this.$nextTick(() => {

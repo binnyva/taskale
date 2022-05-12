@@ -631,6 +631,7 @@
 	},
 	"file_history":
 	[
+		"/mnt/x/Data/www/Projects/taskale/Frontend/src/components/HelloWorld.vue",
 		"/mnt/x/Data/www/Projects/taskale/Frontend/index.html",
 		"/home/binnyva/Scripts/JavaScript/Homie/src/components/NewItem.vue",
 		"/mnt/x/Data/www/Projects/taskale/Frontend/Taskale.sublime-project",
@@ -757,8 +758,7 @@
 		"/home/binnyva/Scripts/Php/Tools/FOM 80G/Mailer/ECS Receipt file Jan-March 2017.csv",
 		"/home/binnyva/Scripts/Php/Tools/FOM 80G/Mailer/NACH receipt file Jan-March 2017.csv",
 		"/mnt/x/Data/www/Projects/Madapp/system/application/views/classes/assign.php",
-		"/mnt/x/Data/www/Projects/Madapp/system/application/models/level_model.php",
-		"/mnt/x/Data/www/Projects/Madapp/system/application/models/batch_model.php"
+		"/mnt/x/Data/www/Projects/Madapp/system/application/models/level_model.php"
 	],
 	"find":
 	{

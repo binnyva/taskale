@@ -5,7 +5,7 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 
 import Home from '../views/Home.vue'
 import Month from '../views/Month.vue'
-// import Login from '../views/Login.vue'
+import Year from '../views/Year.vue'
 // import Logout from '../views/Logout.vue'
 import About from '../views/About.vue'
 
@@ -19,6 +19,15 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home,
+    meta: {
+      requiresAuth: true
+    }
+  },
+
+  {
+    path: '/year',
+    name: 'Year',
+    component: Year,
     meta: {
       requiresAuth: true
     }
