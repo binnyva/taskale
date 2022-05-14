@@ -9,6 +9,7 @@
         :unitKey="this.pad(key + 1)"
         unit="month"
         :label="label"
+        :date="this.year + '-' + this.pad(key + 1) + '-01'"
         :is-current-unit="this.currentDate.format('YYYY-MM') === this.currentDate.format('YYYY-') + this.pad(key + 1)"
         :tasks="this.monthTasks[this.pad(key + 1)]"
         :onNewTask="onNewTask"
@@ -30,7 +31,8 @@ export default {
 
   data() {
     return {
-      currentDate: dayjs(this.date),
+      year: dayjs(this.date).format('YYYY'),
+      currentDate: dayjs(),
       months: [
         'January',
         'February',
@@ -64,16 +66,8 @@ export default {
       }
 
       return data
-    },
-
-    month() {
-      return Number(this.currentDate.format("MM"));
-    },
-
-    year() {
-      return Number(this.currentDate.format("YYYY"));
-    },
-  },
+    }
+  }
 };
 </script>
 

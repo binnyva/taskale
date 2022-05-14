@@ -1,8 +1,9 @@
 <template>
   <div class="calendar-date-selector">
-    <span @click="selectPrevious">﹤</span>
-    <span @click="selectCurrent">Today</span>
-    <span @click="selectNext">﹥</span>
+    <router-link :to="{ path: `/month/` + previousMonth }">﹤</router-link>
+    <router-link :to="{ path: `/month/` + today }">Today</router-link>
+    <router-link :to="{ path: `/month/` + nextMonth }">﹥</router-link>
+
   </div>
 </template>
 
@@ -12,32 +13,20 @@ import dayjs from "dayjs";
 export default {
   name: "CalendarDateSelector",
 
-  props: {
-    currentDate: {
-      type: String,
-      required: true
+  props: ["currentDate", "date"],
+
+  computed: {
+    previousMonth() {
+      return dayjs(this.date).subtract(1, "month").format("YYYY-MM-DD");
     },
 
-    selectedDate: {
-      type: Object,
-      required: true
-    }
-  },
-
-  methods: {
-    selectPrevious() {
-      let newSelectedDate = dayjs(this.selectedDate).subtract(1, "month");
-      this.$emit("dateSelected", newSelectedDate);
+    today() {
+      // this.$emit("dateSelected", newSelectedDate);
+      return dayjs(this.currentDate).format("YYYY-MM-DD");
     },
 
-    selectCurrent() {
-      let newSelectedDate = dayjs(this.currentDate);
-      this.$emit("dateSelected", newSelectedDate);
-    },
-
-    selectNext() {
-      let newSelectedDate = dayjs(this.selectedDate).add(1, "month");
-      this.$emit("dateSelected", newSelectedDate);
+    nextMonth() {
+      return dayjs(this.date).add(1, "month").format("YYYY-MM-DD");
     }
   }
 };

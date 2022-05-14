@@ -631,6 +631,11 @@
 	},
 	"file_history":
 	[
+		"/mnt/x/Data/www/Projects/taskale/Frontend/src/components/Calendar/CalendarMonth.vue",
+		"/mnt/x/Data/www/Projects/taskale/Frontend/src/components/Calendar/CalendarMonthDayItem.vue",
+		"/mnt/x/Data/www/Projects/taskale/Frontend/src/index.css",
+		"/mnt/x/Data/www/Projects/taskale/Frontend/src/views/Month.vue",
+		"/mnt/x/Data/www/Projects/taskale/Frontend/src/views/Home.vue",
 		"/mnt/x/Data/www/Projects/taskale/Frontend/src/components/HelloWorld.vue",
 		"/mnt/x/Data/www/Projects/taskale/Frontend/index.html",
 		"/home/binnyva/Scripts/JavaScript/Homie/src/components/NewItem.vue",
@@ -753,12 +758,7 @@
 		"/home/binnyva/Retrospective.txt",
 		"/home/binnyva/Scripts/Others/Startup/index.html",
 		"/home/binnyva/Downloads/listofapplicants.csv",
-		"/mnt/x/Data/www/Projects/Madapp/system/Madapp.sublime-project",
-		"/home/binnyva/Scripts/Php/Tools/FOM 80G/Mailer/From_Row.txt",
-		"/home/binnyva/Scripts/Php/Tools/FOM 80G/Mailer/ECS Receipt file Jan-March 2017.csv",
-		"/home/binnyva/Scripts/Php/Tools/FOM 80G/Mailer/NACH receipt file Jan-March 2017.csv",
-		"/mnt/x/Data/www/Projects/Madapp/system/application/views/classes/assign.php",
-		"/mnt/x/Data/www/Projects/Madapp/system/application/models/level_model.php"
+		"/mnt/x/Data/www/Projects/Madapp/system/Madapp.sublime-project"
 	],
 	"find":
 	{
@@ -778,6 +778,29 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"selectedDate",
+			"this.date.format",
+			"newSelectedDate",
+			"selected-date",
+			"selectedDate",
+			"key",
+			"this.pad(monthKey + 1)",
+			"center",
+			"currentDate",
+			"dayjs(this.date)",
+			"day--today",
+			"day",
+			"unitKey",
+			"dayjs(",
+			"this.date",
+			"<a href",
+			"CalendarMonth",
+			"day",
+			"Weekdays",
+			"day",
+			"Month",
+			"Login",
+			"Month",
 			" class=\"new-task-name\"",
 			"showNewTaskDetails",
 			"new-task-details",
@@ -882,30 +905,7 @@
 			"('",
 			"() {",
 			"\tfunction",
-			"function",
-			"function ",
-			"applic",
-			"class_starts_on",
-			"password",
-			"Kids",
-			"Children",
-			"Kids",
-			"bank",
-			"get_setting_value",
-			"Center",
-			"text",
-			"Kids",
-			"Center",
-			", $current_day",
-			"batch",
-			"get_user_groups_of_user",
-			"$this->sms->send",
-			"image",
-			"left_",
-			"left_on",
-			"left",
-			"joined_on",
-			"trained"
+			"function"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1030,7 +1030,7 @@
 	"pinned_build_system": "",
 	"replace":
 	{
-		"height": 54.0
+		"height": 74.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -1040,8 +1040,20 @@
 		"selected_items":
 		[
 			[
+				"home",
+				"src/views/Home.vue"
+			],
+			[
+				"Unit",
+				"src/components/Calendar/CalendarUnit.vue"
+			],
+			[
 				"Cal",
-				"src/components/Calendar/CalendarMonth.vue"
+				"src/components/Calendar/CalendarYear.vue"
+			],
+			[
+				"Year",
+				"src/views/Year.vue"
 			],
 			[
 				"Month",
@@ -1538,18 +1550,6 @@
 			[
 				"forg",
 				"application/views/auth/forgotpassword_view.php"
-			],
-			[
-				"user_auth",
-				"application/libraries/user_auth.php"
-			],
-			[
-				"mouse",
-				"application/models/users_model.php"
-			],
-			[
-				"imp",
-				"application/models/impact_survey_model.php"
 			]
 		],
 		"width": 0.0

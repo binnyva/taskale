@@ -6,12 +6,12 @@
     <!-- The calendar header -->
     <div class="calendar-month-header">
       <CalendarDateIndicator
-        :selected-date="selectedDate"
+        :date="date"
         class="calendar-month-header-selected-month"
       />
       <CalendarDateSelector
         :current-date="today"
-        :selected-date="selectedDate"
+        :date="date"
         @dateSelected="selectDate"
       />
     </div>
@@ -45,7 +45,7 @@ dayjs.extend(weekday);
 
 export default {
   name: "CalendarMonth",
-  props: ["tasks", "onNewTask"],
+  props: ["tasks", "onNewTask", "date"],
   components: {
     CalendarDateIndicator,
     CalendarDateSelector,
@@ -53,15 +53,9 @@ export default {
     CalendarWeekdays
   },
 
-  data() {
-    return {
-      selectedDate: dayjs()
-    };
-  },
-
   methods: {
-    selectDate(newSelectedDate) {
-      this.selectedDate = newSelectedDate;
+    selectDate(newDate) {
+      this.date = newDate;
     }
   },
 
@@ -91,15 +85,15 @@ export default {
     },
 
     month() {
-      return Number(this.selectedDate.format("M"));
+      return Number(dayjs(this.date).format("M"));
     },
 
     year() {
-      return Number(this.selectedDate.format("YYYY"));
+      return Number(dayjs(this.date).format("YYYY"));
     },
 
     numberOfDaysInMonth() {
-      return dayjs(this.selectedDate).daysInMonth();
+      return dayjs(this.date).daysInMonth();
     },
 
     currentMonthDays() {
@@ -154,8 +148,8 @@ export default {
       return dayjs(date).weekday();
     },
 
-    selectDate(newSelectedDate) {
-      this.selectedDate = newSelectedDate;
+    selectDate(newDate) {
+      this.date = newDate;
     }
   }
 };

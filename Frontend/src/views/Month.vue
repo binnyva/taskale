@@ -2,14 +2,14 @@
   <div class="month">
     <div class="header">
       <h1 class="text-3xl font-bold">
-        Month &gt; May, 2022
+        Month &gt; {{ header }}
       </h1>
     </div>
 
     <div class="content" ref="content">
       <BlockList :tasks="intentions" :level="`month`"></BlockList>
 
-      <CalendarMonth date="2022-05-01" :tasks="tasks" :onNewTask="onNewTask"></CalendarMonth>
+      <CalendarMonth :date="date" :tasks="tasks" :onNewTask="onNewTask"></CalendarMonth>
     </div>
   </div>
 
@@ -22,6 +22,7 @@
 </template>
 
 <script>
+import dayjs from "dayjs";
 import BlockList from "../components/BlockList.vue"
 import CalendarMonth from "../components/Calendar/CalendarMonth.vue"
 
@@ -36,11 +37,31 @@ export default {
       showNewTaskArea: false,
       newTask: null,
       newTaskName: "",
+      date: this.$route.params.date ? this.$route.params.date : dayjs().format('YYYY-MM-DD'),
       intentions: [{id: 1, name: "MindOS", level: "10year"}, {id: 2, name: "PKM Book", level: "year"}],
       tasks: [{id: 3, name: "Write Outline", level: "day", from: "2022-05-04 00:00:00"}, {id: 4, name: "Create a mockup", from: "2022-05-04 00:00:00"}]
     }
   },
+
+  created() {
+    this.$watch( // Param change will not update date by default
+      () => this.$route.params,
+      () => { this.updateDate() },
+      { immediate: true }
+    )
+  },
+
+  computed: {
+    header() {
+      return dayjs(this.date).format('MMMM, YYYY')
+    }
+  },
+
   methods: {
+    updateDate: function() {
+      this.date = this.$route.params.date
+    },
+
     onNewTask: function(task, details) {
       this.newTask = { ...task };// Clone the object. Or even the task in the intention block will get updated.
       this.showNewTaskArea = true;

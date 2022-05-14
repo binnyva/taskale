@@ -1,5 +1,6 @@
 <template>
   <div id="content" class="container mx-auto pt-8">
+    <router-link to="/">Home</router-link>
     <router-view/>
   </div>
 </template>

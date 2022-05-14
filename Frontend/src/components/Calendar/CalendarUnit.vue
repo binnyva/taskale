@@ -6,7 +6,7 @@
       isCurrentUnit ? 'calendar-current-unit' : ''
     ]"
   >
-    <span>{{ label }}</span>
+    <span><router-link :to="{ path: `/month/${this.date}` }">{{ label }}</router-link></span>
 
     <div class="unit-tasks" :key="updateKey">
       <draggable :list="tasks" item-key="id" group="task-list" @change="log"><!-- :TODO: This should be 100% with and height. Otherwise drop is not easy -->

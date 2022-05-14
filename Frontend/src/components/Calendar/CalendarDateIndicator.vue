@@ -3,18 +3,15 @@
 </template>
 
 <script>
+import dayjs from 'dayjs/esm/index.js';
+
 export default {
   name: "CalendarDateIndicator",
-  props: {
-    selectedDate: {
-      type: Object,
-      required: true
-    }
-  },
+  props: ["date"],
 
   computed: {
     selectedMonth() {
-      return this.selectedDate.format("MMMM YYYY");
+      return dayjs(this.date).format("MMMM YYYY");
     }
   }
 };

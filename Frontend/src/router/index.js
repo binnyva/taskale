@@ -25,7 +25,7 @@ const routes = [
   },
 
   {
-    path: '/year',
+    path: '/year/:date?',
     name: 'Year',
     component: Year,
     meta: {
@@ -34,7 +34,7 @@ const routes = [
   },
 
   {
-    path: '/month',
+    path: '/month/:date?',
     name: 'Month',
     component: Month,
     meta: {
