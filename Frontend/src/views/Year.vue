@@ -19,20 +19,33 @@
     <input type="button" value="Save" @click="saveNewTask" class="bg-blue-500 hover:bg-blue-700 text-white px-2 rounded" />
   </div>
 
+  <div v-show="showSampleTaskEntryArea"><!--  v-click-outside="this.showSampleTaskEntryArea = false"> -->
+    <Modal title="What do you want to do this year?" id="sample-tasks">
+      <p class="text-white my-1">One task per line, please...</p>
+      <textarea v-model="sampleTasks" rows="5" cols="50" class="my-0 w-full" placeholder="Tasks"></textarea>
+      <button @click="saveSampleTasks()" class="bg-blue-500 hover:bg-blue-700 text-white rounded px-2 my-2">Save</button>
+    </Modal>
+  </div>
+
 </template>
 
 <script>
 import BlockList from "../components/BlockList.vue"
 import CalendarYear from "../components/Calendar/CalendarYear.vue"
+import Modal from "../components/Modal.vue"
 
 export default {
   name: 'Year',
   components: {
     BlockList,
-    CalendarYear
+    CalendarYear,
+    Modal
   },
   data() {
     return {
+      showSampleTaskEntryArea: true,
+      sampleTasks: "Quit job\nTravel around the world",
+
       showNewTaskArea: false,
       newTask: null,
       newTaskName: "",
@@ -41,6 +54,21 @@ export default {
     }
   },
   methods: {
+    saveSampleTasks() {
+      const sampleTasksLines = this.sampleTasks.split("\n");
+      let tempTasks = [];
+      for(let i = 0; i < sampleTasksLines.length; i++) {
+        tempTasks.push({
+          id: i,
+          name: sampleTasksLines[i].trim(),
+          level: "year"
+        })
+      }
+
+      this.intentions = tempTasks
+      this.showSampleTaskEntryArea = false
+    },
+
     onNewTask: function(task, details) {
       this.newTask = { ...task };// Clone the object. Or even the task in the intention block will get updated.
       this.showNewTaskArea = true;
@@ -76,6 +104,7 @@ export default {
 
       return null;
     }
+
   }
 
 }
