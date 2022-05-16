@@ -17,6 +17,7 @@ export default {
   },
   mounted() {
     if(this.task.inserted) {
+      this.task.inserted = false
       this.sendPosition()
     }
   }
@@ -25,6 +26,7 @@ export default {
 
 <style>
 .task-block {
+  cursor: grabbing;
   border-radius: .25rem;
   padding: .1rem;
   margin: .25rem;
@@ -35,9 +37,6 @@ export default {
 .day {
   display: inline-block;
   margin: 0;
-}
-.intention {
-  
 }
 </style>
  

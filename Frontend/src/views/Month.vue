@@ -7,7 +7,7 @@
     </div>
 
     <div class="content" ref="content">
-      <BlockList :tasks="intentions" :level="`month`"></BlockList>
+      <BlockList :tasks="projects" :level="`month`"></BlockList>
 
       <CalendarMonth :date="date" :tasks="tasks" :onNewTask="onNewTask"></CalendarMonth>
     </div>
@@ -22,6 +22,7 @@
 </template>
 
 <script>
+import { useStore } from '../store.js'
 import dayjs from "dayjs";
 import BlockList from "../components/BlockList.vue"
 import CalendarMonth from "../components/Calendar/CalendarMonth.vue"
@@ -32,14 +33,18 @@ export default {
     BlockList,
     CalendarMonth
   },
+  setup() {
+    const store = useStore()
+    return { store }
+  },
   data() {
     return {
       showNewTaskArea: false,
       newTask: null,
       newTaskName: "",
       date: this.$route.params.date ? this.$route.params.date : dayjs().format('YYYY-MM-DD'),
-      intentions: [{id: 1, name: "MindOS", level: "10year"}, {id: 2, name: "PKM Book", level: "year"}],
-      tasks: [{id: 3, name: "Write Outline", level: "day", from: "2022-05-04 00:00:00"}, {id: 4, name: "Create a mockup", from: "2022-05-04 00:00:00"}]
+      // intentions: [{id: 1, name: "MindOS", level: "10year"}, {id: 2, name: "PKM Book", level: "year"}],
+      // tasks: [{id: 3, name: "Write Outline", level: "day", from: "2022-05-04 00:00:00"}, {id: 4, name: "Create a mockup", from: "2022-05-04 00:00:00"}]
     }
   },
 
@@ -54,6 +59,13 @@ export default {
   computed: {
     header() {
       return dayjs(this.date).format('MMMM, YYYY')
+    },
+
+    projects() {
+      return this.store.getFilteredTasks( task => (task.level === "year" || task.level === "month") )
+    },
+    tasks() {
+      return this.store.getFilteredTasks( task => (task.level === "day"))
     }
   },
 
@@ -63,7 +75,12 @@ export default {
     },
 
     onNewTask: function(task, details) {
-      this.newTask = { ...task };// Clone the object. Or even the task in the intention block will get updated.
+      this.newTask = { 
+        ...task,
+        id: task.id + 30, // :TODO: 
+        level: "day",
+        inserted: false
+      };
       this.showNewTaskArea = true;
       this.$refs.newTaskArea.style.top = parseInt(details.pos.bottom - 3) + "px";
       this.$refs.newTaskArea.style.left = parseInt(details.pos.left) + "px";
@@ -76,7 +93,8 @@ export default {
     saveNewTask: function() {
       this.showNewTaskArea = false;
       this.newTask.name = this.newTaskName;
-      this.tasks.push(this.newTask);
+
+      this.store.addTask(this.newTask);
 
       this.newTask = null;
       this.newTaskName = "";
@@ -84,18 +102,6 @@ export default {
 
     hideNewTaskArea: function() {
       this.showNewTaskArea = false;
-    },
-
-    getIndexOfTaskId(taskId) {
-      for(let i=0; i < this.tasks.length; i++) {
-          let task = this.tasks[i];
-
-          if(task.id == taskId) {
-            return i;
-          }
-      }
-
-      return null;
     }
   }
 

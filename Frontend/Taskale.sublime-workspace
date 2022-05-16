@@ -631,8 +631,20 @@
 	},
 	"file_history":
 	[
-		"/mnt/x/Data/www/Projects/taskale/Frontend/src/components/Calendar/CalendarMonth.vue",
 		"/mnt/x/Data/www/Projects/taskale/Frontend/src/components/Calendar/CalendarMonthDayItem.vue",
+		"/mnt/x/Data/www/Projects/taskale/Frontend/src/store.js",
+		"/mnt/x/Data/www/Projects/taskale/Frontend/src/components/Calendar/CalendarUnit.vue",
+		"/mnt/x/Data/www/MAD/apps/madnet/src/utils/Helpers.js",
+		"/mnt/x/Data/www/Projects/taskale/Frontend/src/components/Calendar/CalendarYear.vue",
+		"/mnt/x/Data/www/Projects/taskale/Frontend/src/utils/common.js",
+		"/mnt/x/Data/www/Projects/taskale/Frontend/src/util/common.js",
+		"/mnt/x/Data/www/Projects/taskale/Frontend/package.json",
+		"/home/binnyva/Scripts/JavaScript/Homie/src/store.js",
+		"/home/binnyva/Scripts/JavaScript/Homie/src/main.js",
+		"/mnt/x/Data/DZG/Garden/Deploy.sh",
+		"/mnt/x/Data/DZG/Garden/gatsby-config.js",
+		"/mnt/x/Data/DZG/Garden/package.json",
+		"/mnt/x/Data/www/Projects/taskale/Frontend/src/components/Calendar/CalendarMonth.vue",
 		"/mnt/x/Data/www/Projects/taskale/Frontend/src/index.css",
 		"/mnt/x/Data/www/Projects/taskale/Frontend/src/views/Month.vue",
 		"/mnt/x/Data/www/Projects/taskale/Frontend/src/views/Home.vue",
@@ -746,19 +758,7 @@
 		"/mnt/x/Backup/Rsync/Htdocs/Projects/Madapp/system/application/views/kids/popups/kids_delete_view.php",
 		"/home/binnyva/Expenses.txt",
 		"/mnt/x/Data/www/Projects/Friendlee/System/Remove_Duplicate.php",
-		"/mnt/x/Data/www/Projects/Friendlee/System/Change_Date.php",
-		"/home/binnyva/Students.csv",
-		"/home/binnyva/Temp/Data Talk.txt",
-		"/mnt/x/Data/www/Projects/Madapp/system/application/views/classes/assign_batch.php",
-		"/home/binnyva/Scoping.txt",
-		"/home/binnyva/New Rent.txt",
-		"/home/binnyva/Test Result.txt",
-		"/mnt/x/Data/www/Projects/Madapp/js/sections/classes/assign.js",
-		"/mnt/x/Data/www/Projects/Madapp/system/application/views/layout/flatui/footer.php",
-		"/home/binnyva/Retrospective.txt",
-		"/home/binnyva/Scripts/Others/Startup/index.html",
-		"/home/binnyva/Downloads/listofapplicants.csv",
-		"/mnt/x/Data/www/Projects/Madapp/system/Madapp.sublime-project"
+		"/mnt/x/Data/www/Projects/Friendlee/System/Change_Date.php"
 	],
 	"find":
 	{
@@ -778,6 +778,22 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"todos",
+			"Vue.set",
+			"DELETE_TASK",
+			": {",
+			"task",
+			"filteredTasks",
+			"taskObject",
+			"taskArray",
+			"tasks",
+			"block",
+			"Blocks",
+			"block_index",
+			"blocks",
+			"BLOCK",
+			"BLOCKS",
+			"mdx",
 			"selectedDate",
 			"this.date.format",
 			"newSelectedDate",
@@ -889,23 +905,7 @@
 			"intval",
 			"$b",
 			"intval",
-			"classes_batch_view",
-			"group_id",
-			"status",
-			"full_link",
-			"getTeacherGroup",
-			"2",
-			"get_next_class",
-			"=",
-			"= ",
-			"uri",
-			"url",
-			"dis",
-			"_group_id",
-			"('",
-			"() {",
-			"\tfunction",
-			"function"
+			"classes_batch_view"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -996,7 +996,7 @@
 	},
 	"input":
 	{
-		"height": 38.0
+		"height": 41.0
 	},
 	"menu_visible": true,
 	"output.doc":
@@ -1040,6 +1040,14 @@
 		"selected_items":
 		[
 			[
+				"Month",
+				"src/views/Month.vue"
+			],
+			[
+				"ye",
+				"src/views/Year.vue"
+			],
+			[
 				"home",
 				"src/views/Home.vue"
 			],
@@ -1054,10 +1062,6 @@
 			[
 				"Year",
 				"src/views/Year.vue"
-			],
-			[
-				"Month",
-				"src/components/Calendar/CalendarMonthDayItem.vue"
 			],
 			[
 				"api",
@@ -1545,10 +1549,6 @@
 			],
 			[
 				"fo",
-				"application/views/auth/forgotpassword_view.php"
-			],
-			[
-				"forg",
 				"application/views/auth/forgotpassword_view.php"
 			]
 		],

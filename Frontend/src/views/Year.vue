@@ -7,7 +7,7 @@
     </div>
 
     <div class="content" ref="content">
-      <BlockList :tasks="intentions" :level="`year`"></BlockList>
+      <BlockList :tasks="projects" :level="`year`"></BlockList>
 
       <CalendarYear date="2022-05-01" :tasks="tasks" :onNewTask="onNewTask"></CalendarYear>
     </div>
@@ -15,7 +15,7 @@
 
   <div ref="newTaskArea" class="new-task-area" v-show="showNewTaskArea" v-click-outside="hideNewTaskArea">
     <span class="relation-indicator">&gt;</span>
-    <input type="text" v-model="newTaskName" class="new-task-name" placeholder="Task Name" @keyup.enter="saveNewTask" /><br />
+    <input type="text" v-model="newTaskName" class="new-task-name" placeholder="Task Name" @keyup.enter="saveNewTask" @keyup.escape="hideNewTaskArea" /><br />
     <input type="button" value="Save" @click="saveNewTask" class="bg-blue-500 hover:bg-blue-700 text-white px-2 rounded" />
   </div>
 
@@ -30,6 +30,7 @@
 </template>
 
 <script>
+import { useStore } from '../store.js'
 import BlockList from "../components/BlockList.vue"
 import CalendarYear from "../components/Calendar/CalendarYear.vue"
 import Modal from "../components/Modal.vue"
@@ -41,6 +42,11 @@ export default {
     CalendarYear,
     Modal
   },
+
+  setup() {
+    const store = useStore()
+    return { store }
+  },
   data() {
     return {
       showSampleTaskEntryArea: true,
@@ -49,8 +55,15 @@ export default {
       showNewTaskArea: false,
       newTask: null,
       newTaskName: "",
-      intentions: [{id: 1, name: "MindOS", level: "10year"}, {id: 2, name: "PKM Book", level: "year"}],
-      tasks: [{id: 3, name: "Write Outline", level: "day", from: "2022-05-01 00:00:00"}, {id: 4, name: "Create a mockup", from: "2022-06-01 00:00:00"}]
+    }
+  },
+
+  computed: {
+    projects() { // Return only tasks at a higher or equal level of current level(year)
+      return this.store.getFilteredTasks( task => (task.level === "year" || task.level === "10year") )
+    },
+    tasks() { // Return only tasks one level below current level(month)
+      return this.store.getFilteredTasks( task => (task.level === "month"))
     }
   },
   methods: {
@@ -58,19 +71,26 @@ export default {
       const sampleTasksLines = this.sampleTasks.split("\n");
       let tempTasks = [];
       for(let i = 0; i < sampleTasksLines.length; i++) {
+        let id = i+20;
         tempTasks.push({
-          id: i,
+          id: id,
           name: sampleTasksLines[i].trim(),
           level: "year"
         })
       }
 
-      this.intentions = tempTasks
+      this.store.setTasks( tempTasks );
+
       this.showSampleTaskEntryArea = false
     },
 
     onNewTask: function(task, details) {
-      this.newTask = { ...task };// Clone the object. Or even the task in the intention block will get updated.
+      this.newTask = { // Clone the object. Or even the task in the project block will get updated.
+        ...task, 
+        id: task.id+20, // :TODO: 
+        level: "month",
+        inserted: false
+      };
       this.showNewTaskArea = true;
       this.$refs.newTaskArea.style.top = parseInt(details.pos.bottom - 4) + "px";
       this.$refs.newTaskArea.style.left = parseInt(details.pos.left) + "px";
@@ -83,7 +103,8 @@ export default {
     saveNewTask: function() {
       this.showNewTaskArea = false;
       this.newTask.name = this.newTaskName;
-      this.tasks.push(this.newTask);
+
+      this.store.addTask(this.newTask);
 
       this.newTask = null;
       this.newTaskName = "";
@@ -92,18 +113,6 @@ export default {
     hideNewTaskArea: function() {
       this.showNewTaskArea = false;
     },
-
-    getIndexOfTaskId(taskId) {
-      for(let i=0; i < this.tasks.length; i++) {
-          let task = this.tasks[i];
-
-          if(task.id == taskId) {
-            return i;
-          }
-      }
-
-      return null;
-    }
 
   }
 
