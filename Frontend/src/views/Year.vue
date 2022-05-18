@@ -7,16 +7,10 @@
     </div>
 
     <div class="content" ref="content">
-      <BlockList :tasks="projects" :level="`year`"></BlockList>
+      <ProjectList :tasks="projects" :level="`year`"></ProjectList>
 
       <CalendarYear date="2022-05-01" :tasks="tasks" :onNewTask="onNewTask"></CalendarYear>
     </div>
-  </div>
-
-  <div ref="newTaskArea" class="new-task-area" v-show="showNewTaskArea" v-click-outside="hideNewTaskArea">
-    <span class="relation-indicator">&gt;</span>
-    <input type="text" v-model="newTaskName" class="new-task-name" placeholder="Task Name" @keyup.enter="saveNewTask" @keyup.escape="hideNewTaskArea" /><br />
-    <input type="button" value="Save" @click="saveNewTask" class="bg-blue-500 hover:bg-blue-700 text-white px-2 rounded" />
   </div>
 
   <div v-show="showSampleTaskEntryArea"><!--  v-click-outside="this.showSampleTaskEntryArea = false"> -->
@@ -27,20 +21,24 @@
     </Modal>
   </div>
 
+  <NewTask ref="newTask"></NewTask>
+
 </template>
 
 <script>
 import { useStore } from '../store.js'
-import BlockList from "../components/BlockList.vue"
+import ProjectList from "../components/ProjectList.vue"
 import CalendarYear from "../components/Calendar/CalendarYear.vue"
 import Modal from "../components/Modal.vue"
+import NewTask from "../components/NewTask.vue"
 
 export default {
   name: 'Year',
   components: {
-    BlockList,
+    ProjectList,
     CalendarYear,
-    Modal
+    Modal,
+    NewTask
   },
 
   setup() {
@@ -49,12 +47,8 @@ export default {
   },
   data() {
     return {
-      showSampleTaskEntryArea: true,
+      showSampleTaskEntryArea: false, // Make this true for external demos.
       sampleTasks: "Quit job\nTravel around the world",
-
-      showNewTaskArea: false,
-      newTask: null,
-      newTaskName: "",
     }
   },
 
@@ -67,6 +61,13 @@ export default {
     }
   },
   methods: {
+    onNewTask(task, details) {
+      this.$refs.newTask.addNewTask(task, "month", { 
+        ...details, 
+        cellWidth: (this.$refs.content.clientWidth / 7) - 7 
+      })
+    },
+
     saveSampleTasks() {
       const sampleTasksLines = this.sampleTasks.split("\n");
       let tempTasks = [];
@@ -82,36 +83,6 @@ export default {
       this.store.setTasks( tempTasks );
 
       this.showSampleTaskEntryArea = false
-    },
-
-    onNewTask: function(task, details) {
-      this.newTask = { // Clone the object. Or even the task in the project block will get updated.
-        ...task, 
-        id: task.id+20, // :TODO: 
-        level: "month",
-        inserted: false
-      };
-      this.showNewTaskArea = true;
-      this.$refs.newTaskArea.style.top = parseInt(details.pos.bottom - 4) + "px";
-      this.$refs.newTaskArea.style.left = parseInt(details.pos.left) + "px";
-      this.$refs.newTaskArea.style.width = ((this.$refs.content.clientWidth / 7) - 7) + "px";
-      this.$nextTick(() => {
-        this.$refs.newTaskArea.children[1].focus()
-      })
-    },
-
-    saveNewTask: function() {
-      this.showNewTaskArea = false;
-      this.newTask.name = this.newTaskName;
-
-      this.store.addTask(this.newTask);
-
-      this.newTask = null;
-      this.newTaskName = "";
-    },
-
-    hideNewTaskArea: function() {
-      this.showNewTaskArea = false;
     },
 
   }

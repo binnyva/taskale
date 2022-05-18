@@ -631,6 +631,7 @@
 	},
 	"file_history":
 	[
+		"/mnt/x/Data/www/Projects/taskale/Frontend/src/components/IntentionArea.vue",
 		"/mnt/x/Data/www/Projects/taskale/Frontend/src/components/Calendar/CalendarMonthDayItem.vue",
 		"/mnt/x/Data/www/Projects/taskale/Frontend/src/store.js",
 		"/mnt/x/Data/www/Projects/taskale/Frontend/src/components/Calendar/CalendarUnit.vue",
@@ -757,8 +758,7 @@
 		"/mnt/x/Data/www/Projects/ActiveX/system/with_rule.js",
 		"/mnt/x/Backup/Rsync/Htdocs/Projects/Madapp/system/application/views/kids/popups/kids_delete_view.php",
 		"/home/binnyva/Expenses.txt",
-		"/mnt/x/Data/www/Projects/Friendlee/System/Remove_Duplicate.php",
-		"/mnt/x/Data/www/Projects/Friendlee/System/Change_Date.php"
+		"/mnt/x/Data/www/Projects/Friendlee/System/Remove_Duplicate.php"
 	],
 	"find":
 	{
@@ -769,6 +769,7 @@
 		"height": 107.0,
 		"where_history":
 		[
+			"",
 			"/mnt/x/Data/www/Projects/Madapp/system/application",
 			""
 		]
@@ -778,6 +779,12 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"BlockList",
+			"element",
+			"this.tasks[i]",
+			"inserted",
+			"insterted",
+			"Modal",
 			"todos",
 			"Vue.set",
 			"DELETE_TASK",
@@ -899,13 +906,7 @@
 			"BatchSubject",
 			"Batch.subject_id",
 			"B.subject_id",
-			"User_Cre",
-			"Archive",
-			"App_Event_Mail_Tracker",
-			"intval",
-			"$b",
-			"intval",
-			"classes_batch_view"
+			"User_Cre"
 		],
 		"highlight": true,
 		"in_selection": false,

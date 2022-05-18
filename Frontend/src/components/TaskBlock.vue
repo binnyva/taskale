@@ -17,7 +17,6 @@ export default {
   },
   mounted() {
     if(this.task.inserted) {
-      this.task.inserted = false
       this.sendPosition()
     }
   }

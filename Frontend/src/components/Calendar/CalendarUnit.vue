@@ -38,21 +38,20 @@ export default {
   },
 
   methods: {
-    saveChanges() {
-
-    },
     log(evt) {
       if(evt.added) {
-        const taskId = evt.added.element.id
         for(let i=0; i < this.tasks.length; i++) {
-          if(this.tasks[i].id == taskId) {
+          if(this.tasks[i].inserted) {
             this.tasks[i].from = dayjs(this.date).format('YYYY-') + this.unitKey + "-01 00:00:00";
-            this.tasks[i].inserted = true;
             break;
           }
         }
 
         this.updateKey += 1; // Force rerender
+      }
+
+      if(evt.removed) { // :TODO: On moving, this gets called. Update the store. Even Add gets called.
+
       }
     }
   }

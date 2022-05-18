@@ -5,7 +5,6 @@
 </template>
 
 <script>
-// import draggable from 'vuedraggable'
 import TaskBlock from "./TaskBlock"
 
 export default {
@@ -13,14 +12,6 @@ export default {
   props: ["intentions", "level"],
   components: {
     TaskBlock,
-    // draggable
-  },
-  data: () => {
-    return {
-      activeLevel: "month"
-    }
-  },
-  methods: {
   }
 }
 </script>

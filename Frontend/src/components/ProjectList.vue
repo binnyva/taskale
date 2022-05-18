@@ -1,6 +1,6 @@
 <template>
   <div class="block-list border border-black p-2">
-    <draggable :list="tasks" item-key="id" :group="{ name: 'task-list', pull: 'clone', put: false }">
+    <draggable :list="tasks" item-key="id" :group="{ name: 'task-list', pull: 'clone', put: false }" :clone="onClone">
       <template #item="{ element }">
         <TaskBlock :task="element" class="task" view="intention"></TaskBlock>
       </template>
@@ -13,15 +13,22 @@ import draggable from "vuedraggable";
 import TaskBlock from "./TaskBlock.vue"
 
 export default {
-  name: "BlockList",
+  name: "ProjectList",
   props: ["tasks", "level"],
   components: {
     TaskBlock,
     draggable
   },
-  data: () => {
-    return {
-      activeLevel: "month"
+
+  methods: {
+    onClone( { id, name } ) { // New element that's added to the Dropped array is created with this.
+      console.log(id,name)
+      return {
+        id: id + 20, // :TODO: 0, maybe.
+        name: name,
+        inserted: true,
+        parent_task_id: id
+      }
     }
   }
 }

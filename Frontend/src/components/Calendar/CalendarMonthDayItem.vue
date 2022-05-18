@@ -42,18 +42,11 @@ export default {
     }
   },
   methods: {
-    saveChanges() {
-
-    },
     log(evt) {
       if(evt.added) {
-        const taskId = evt.added.element.id
         for(let i=0; i < this.tasks.length; i++) {
-          let task = this.tasks[i];
-
-          if(task.id == taskId) {
+          if(this.tasks[i].inserted) {
             this.tasks[i].from = dayjs(this.day.date).format("YYYY-MM-DD 00:00:00");
-            this.tasks[i].inserted = true;
             break;
           }
         }
