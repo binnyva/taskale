@@ -631,6 +631,7 @@
 	},
 	"file_history":
 	[
+		"/mnt/x/Data/www/Projects/taskale/Frontend/src/views/Home.vue",
 		"/mnt/x/Data/www/Projects/taskale/Frontend/src/components/IntentionArea.vue",
 		"/mnt/x/Data/www/Projects/taskale/Frontend/src/components/Calendar/CalendarMonthDayItem.vue",
 		"/mnt/x/Data/www/Projects/taskale/Frontend/src/store.js",
@@ -648,7 +649,6 @@
 		"/mnt/x/Data/www/Projects/taskale/Frontend/src/components/Calendar/CalendarMonth.vue",
 		"/mnt/x/Data/www/Projects/taskale/Frontend/src/index.css",
 		"/mnt/x/Data/www/Projects/taskale/Frontend/src/views/Month.vue",
-		"/mnt/x/Data/www/Projects/taskale/Frontend/src/views/Home.vue",
 		"/mnt/x/Data/www/Projects/taskale/Frontend/src/components/HelloWorld.vue",
 		"/mnt/x/Data/www/Projects/taskale/Frontend/index.html",
 		"/home/binnyva/Scripts/JavaScript/Homie/src/components/NewItem.vue",
@@ -779,6 +779,16 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"Logout",
+			"Month",
+			"function",
+			"\n",
+			"\"color\"",
+			"color",
+			"\"}",
+			"$store",
+			":",
+			"',",
 			"BlockList",
 			"element",
 			"this.tasks[i]",
@@ -896,17 +906,7 @@
 			"presi",
 			"president_id",
 			"classes_happening",
-			"$data[",
-			"check_addr",
-			"address",
-			"'address'",
-			"CD.value",
-			"center_id",
-			"CenterD",
-			"BatchSubject",
-			"Batch.subject_id",
-			"B.subject_id",
-			"User_Cre"
+			"$data["
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1040,6 +1040,10 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"Ye",
+				"src/views/Year.vue"
+			],
 			[
 				"Month",
 				"src/views/Month.vue"
@@ -1547,10 +1551,6 @@
 			[
 				"",
 				"application/libraries/user_auth.php"
-			],
-			[
-				"fo",
-				"application/views/auth/forgotpassword_view.php"
 			]
 		],
 		"width": 0.0

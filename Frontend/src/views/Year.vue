@@ -43,12 +43,13 @@ export default {
 
   setup() {
     const store = useStore()
+    console.log(store.getTotalTaskCount())
     return { store }
   },
   data() {
     return {
-      showSampleTaskEntryArea: false, // Make this true for external demos.
-      sampleTasks: "Quit job\nTravel around the world",
+      showSampleTaskEntryArea: (this.store.getTotalTaskCount() === 0),
+      sampleTasks: "Build a planning App\nTravel around the world",
     }
   },
 

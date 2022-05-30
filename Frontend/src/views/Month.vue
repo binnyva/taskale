@@ -63,11 +63,11 @@ export default {
   },
 
   methods: {
-    updateDate: function() {
+    updateDate() {
       this.date = this.$route.params.date
     },
 
-    onNewTask: function(task, details) {
+    onNewTask(task, details) {
       this.$refs.newTask.addNewTask(task, "day", { 
         ...details, 
         cellWidth: (this.$refs.content.clientWidth / 7) - 7 

@@ -1,11 +1,11 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
+import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 
 import App from './App.vue'
 import './index.css'
 
 import router from './router'
-// import store from "./store"; // .use(store)
 
 const clickOutside = {
     beforeMount: function (el, binding) {
@@ -29,4 +29,8 @@ const clickOutside = {
     }
 }
 
-createApp(App).use(router).use(createPinia()).directive("click-outside", clickOutside).mount('#app');
+// Storte with pesistent data.
+const pinia = createPinia()
+pinia.use(piniaPluginPersistedstate)
+
+createApp(App).use(router).use(pinia).directive("click-outside", clickOutside).mount('#app');

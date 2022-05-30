@@ -6,7 +6,7 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import Month from '../views/Month.vue'
 import Year from '../views/Year.vue'
-// import Logout from '../views/Logout.vue'
+import Task from '../views/Task.vue'
 import About from '../views/About.vue'
 
 const routes = [
@@ -37,6 +37,15 @@ const routes = [
     path: '/month/:date?',
     name: 'Month',
     component: Month,
+    meta: {
+      requiresAuth: true
+    }
+  },
+
+  {
+    path: '/task/:taskId?',
+    name: 'Task',
+    component: Task,
     meta: {
       requiresAuth: true
     }

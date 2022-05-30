@@ -1,5 +1,9 @@
 <template>
-  <span class="task-block" :class="view" ref="block">
+  <span class="task-block" :class="view" ref="block" :style="{ 
+      backgroundColor: `hsl(${task.hue}, 100%, 75%)`,
+      border: `1px solid hsl(${task.hue}, 100%, 25%)`,
+      color: `hsl(${task.hue}, 50%, 20%)`
+    }">
     {{ task.name }}
   </span>
 </template>
@@ -29,9 +33,6 @@ export default {
   border-radius: .25rem;
   padding: .1rem;
   margin: .25rem;
-  border: 1px solid var(--border-color);
-  background-color: var(--bg-sub-color);
-  color:  var(--text-sub-color);
 }
 .day {
   display: inline-block;
