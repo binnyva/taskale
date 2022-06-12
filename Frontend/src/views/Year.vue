@@ -43,7 +43,6 @@ export default {
 
   setup() {
     const store = useStore()
-    console.log(store.getTotalTaskCount())
     return { store }
   },
   data() {

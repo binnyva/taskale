@@ -1,5 +1,5 @@
 <template>
-  <span class="task-block" :class="view" ref="block" :style="{ 
+  <span @click="showTask" class="task-block" :class="view" ref="block" :style="{ 
       backgroundColor: `hsl(${task.hue}, 100%, 75%)`,
       border: `1px solid hsl(${task.hue}, 100%, 25%)`,
       color: `hsl(${task.hue}, 50%, 20%)`
@@ -17,6 +17,10 @@ export default {
       this.onNewTask(this.task, {
         pos: this.$refs.block.getBoundingClientRect()
       })
+    },
+
+    showTask() {
+      this.$router.push('/task/' + this.task.id)
     }
   },
   mounted() {

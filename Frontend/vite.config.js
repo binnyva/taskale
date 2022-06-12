@@ -1,10 +1,13 @@
 // vite.config.js
+import vue from '@vitejs/plugin-vue'
+
 export default {
-  // config options
+  base: '/taskale/',
   optimizeDeps: {
   	include: [ 
   		'dayjs/esm/index.js',
   		'dayjs/esm/plugin/weekday' 
   	]
-  }
+  },
+  plugins: [vue()]
 }

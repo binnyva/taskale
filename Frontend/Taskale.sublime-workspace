@@ -631,26 +631,40 @@
 	},
 	"file_history":
 	[
-		"/mnt/x/Data/www/Projects/taskale/Frontend/src/views/Home.vue",
-		"/mnt/x/Data/www/Projects/taskale/Frontend/src/components/IntentionArea.vue",
-		"/mnt/x/Data/www/Projects/taskale/Frontend/src/components/Calendar/CalendarMonthDayItem.vue",
-		"/mnt/x/Data/www/Projects/taskale/Frontend/src/store.js",
+		"/mnt/x/Data/www/Projects/taskale/Frontend/src/main.js",
+		"/mnt/x/Data/www/Projects/taskale/Frontend/vite.config.js",
+		"/mnt/x/Data/www/Projects/taskale/Frontend/postcss.config.js",
+		"/mnt/x/Data/www/Projects/taskale/Frontend/package.json",
+		"/mnt/x/Data/www/Projects/taskale/Frontend/tailwind.config.js",
+		"/mnt/x/Data/www/Projects/taskale/Frontend/node_modules/tailwindcss/base.css",
+		"/mnt/x/Data/www/Projects/taskale/Frontend/node_modules/tailwindcss/lib/css/preflight.css",
+		"/mnt/x/Data/www/Projects/taskale/Frontend/node_modules/tailwindcss/lib/index.js",
+		"/mnt/x/Data/www/Projects/taskale/Frontend/src/index.css",
+		"/mnt/x/Data/www/Projects/taskale/Frontend/node_modules/tailwindcss/components.css",
+		"/mnt/x/Data/www/Projects/taskale/Frontend/node_modules/tailwindcss/utilities.css",
+		"/mnt/x/Data/www/Projects/taskale/Frontend/0Meta/Data.json",
 		"/mnt/x/Data/www/Projects/taskale/Frontend/src/components/Calendar/CalendarUnit.vue",
+		"/mnt/x/Data/www/Projects/taskale/Frontend/src/components/Calendar/CalendarMonthDayItem.vue",
+		"/mnt/x/Data/www/Projects/taskale/Frontend/src/components/NewTask.vue",
+		"/mnt/x/Data/www/Projects/taskale/Frontend/src/components/Modal.vue",
+		"/mnt/x/Data/www/Projects/taskale/Frontend/src/components/IntentionArea.vue",
+		"/mnt/x/Data/www/Projects/taskale/Frontend/src/utils/tree.js",
+		"/mnt/x/Data/www/Projects/taskale/Frontend/index.html",
+		"/mnt/x/Data/www/Projects/taskale/Frontend/src/utils/common.js",
+		"/mnt/x/Data/www/Projects/taskale/Frontend/src/views/Month.vue",
+		"/home/binnyva/Notes on Taskale",
+		"/mnt/x/Data/www/Projects/taskale/Frontend/src/views/Home.vue",
+		"/mnt/x/Data/www/Projects/taskale/Frontend/src/store.js",
 		"/mnt/x/Data/www/MAD/apps/madnet/src/utils/Helpers.js",
 		"/mnt/x/Data/www/Projects/taskale/Frontend/src/components/Calendar/CalendarYear.vue",
-		"/mnt/x/Data/www/Projects/taskale/Frontend/src/utils/common.js",
 		"/mnt/x/Data/www/Projects/taskale/Frontend/src/util/common.js",
-		"/mnt/x/Data/www/Projects/taskale/Frontend/package.json",
 		"/home/binnyva/Scripts/JavaScript/Homie/src/store.js",
 		"/home/binnyva/Scripts/JavaScript/Homie/src/main.js",
 		"/mnt/x/Data/DZG/Garden/Deploy.sh",
 		"/mnt/x/Data/DZG/Garden/gatsby-config.js",
 		"/mnt/x/Data/DZG/Garden/package.json",
 		"/mnt/x/Data/www/Projects/taskale/Frontend/src/components/Calendar/CalendarMonth.vue",
-		"/mnt/x/Data/www/Projects/taskale/Frontend/src/index.css",
-		"/mnt/x/Data/www/Projects/taskale/Frontend/src/views/Month.vue",
 		"/mnt/x/Data/www/Projects/taskale/Frontend/src/components/HelloWorld.vue",
-		"/mnt/x/Data/www/Projects/taskale/Frontend/index.html",
 		"/home/binnyva/Scripts/JavaScript/Homie/src/components/NewItem.vue",
 		"/mnt/x/Data/www/Projects/taskale/Frontend/Taskale.sublime-project",
 		"/mnt/x/Data/www/MAD/api/Phoenix.sublime-project",
@@ -744,21 +758,7 @@
 		"/home/binnyva/Dropbox/MAD/Rewrite/Model_REST.txt",
 		"/home/binnyva/Dropbox/MAD/Rewrite/Model.txt",
 		"/home/binnyva/Dropbox/MAD/Rewrite/Process for creating REST API for existing software.txt",
-		"/home/binnyva/Dropbox/MAD/Rewrite/Rebuilding a Web App.txt",
-		"/mnt/x/Data/www/Projects/Madapp/system/application/config/routes.php",
-		"/mnt/x/Data/www/Projects/Madapp/mobile/bower_components/bootstrap-star-rating/js/star-rating.js",
-		"/home/binnyva/Scripts/Shell/Remote/bdb/bdb.sh",
-		"/mnt/x/Data/www/Projects/Madapp/system/application/views/kids/popups/kids_edit_view.php",
-		"/mnt/x/Data/www/Projects/Madapp/system/application/views/admin/popups/addkids_popup.php",
-		"/mnt/x/Data/www/Projects/Madapp/system/application/controllers/classes.php",
-		"/mnt/x/Data/www/Projects/Madapp/system/application/controllers/debug.php",
-		"/mnt/x/Data/www/Projects/Madapp/system/application/controllers/kids.php",
-		"/home/binnyva/Scripts/Shell/bin/opener",
-		"/mnt/x/Data/www/Projects/ActiveX/config/ruleset.json",
-		"/mnt/x/Data/www/Projects/ActiveX/system/with_rule.js",
-		"/mnt/x/Backup/Rsync/Htdocs/Projects/Madapp/system/application/views/kids/popups/kids_delete_view.php",
-		"/home/binnyva/Expenses.txt",
-		"/mnt/x/Data/www/Projects/Friendlee/System/Remove_Duplicate.php"
+		"/home/binnyva/Dropbox/MAD/Rewrite/Rebuilding a Web App.txt"
 	],
 	"find":
 	{
@@ -779,6 +779,16 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"highlightTaskId",
+			"toRaw",
+			"state.ta",
+			"\"}}",
+			"deepClone",
+			"state",
+			"(state) {",
+			"Tree",
+			"allTask",
+			"(state) {",
 			"Logout",
 			"Month",
 			"function",
@@ -896,17 +906,7 @@
 			"region",
 			"get_all_below",
 			"region",
-			"medium",
-			"less",
-			"lesson",
-			"less",
-			"lessos",
-			"lesson_id",
-			"feedback",
-			"presi",
-			"president_id",
-			"classes_happening",
-			"$data["
+			"medium"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1040,6 +1040,14 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"TaskTre",
+				"src/components/TaskTree.vue"
+			],
+			[
+				"stor",
+				"src/store.js"
+			],
 			[
 				"Ye",
 				"src/views/Year.vue"
@@ -1543,14 +1551,6 @@
 			[
 				"center_mo",
 				"application/models/center_model.php"
-			],
-			[
-				"cen",
-				"application/views/admin/popups/center_edit_view.php"
-			],
-			[
-				"",
-				"application/libraries/user_auth.php"
 			]
 		],
 		"width": 0.0

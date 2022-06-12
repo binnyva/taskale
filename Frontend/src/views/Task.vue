@@ -1,29 +1,28 @@
 <template>
   <div class="task-details">
-  	<h2>{{ task.name }}</h2>
-
+    <ul class="my-8">
+      <TaskTree :tree="this.tree" :highlightTaskId="this.$route.params.taskId"></TaskTree>
+    </ul>
+    
   </div>
 </template>
 
 <script>
 import { useStore } from '../store.js'
+import TaskTree from "../components/TaskTree.vue"
+import Tree from "../utils/tree.js"
+import { markRaw } from 'vue'
 
 export default {
   name: 'Task',
   props: ["taskId"],
+  components: { TaskTree },
 
   data() {
   	return {
   		task: {},
-  		tree: {}, 
-  			/* Tree format...
-  			 *  {
-			 *	  id: ,
-			 *	  name: ,
-			 *	  level: ,
-			 *	  children: [ { ... task } ]
-			 *	}
-  			 */
+  		tree: {},
+      hierarchy: {}
   	}
   },
 
@@ -42,13 +41,11 @@ export default {
 
   methods: {
   	getTask() {
-  	  this.task = this.store.getTaskById( this.$route.params.taskId )
-
-  	  // :TODO:
-  	  // this.tree = this.store.getTree( this.$route.params.taskId )
-  	}
+  	  // this.task = this.store.getTaskById( this.$route.params.taskId )
+  	  this.tree = markRaw( this.store.getTaskTree( this.$route.params.taskId ) )
+      // this.hierarchy = markRaw( this.store.getHierarchy( this.$route.params.taskId ) )
+  	},
   }
-
 }
 
 </script>
