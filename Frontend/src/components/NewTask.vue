@@ -1,6 +1,6 @@
 <template>
-  <div ref="newTaskArea" class="new-task-area" v-show="showNewTaskArea" v-click-outside="hideNewTaskArea">
-    <span class="relation-indicator">&gt;</span>
+  <div ref="newTaskArea" class="new-task-area" v-show="isNewTaskShown" v-click-outside="hideNewTaskArea">
+    <!-- <span class="relation-indicator">&gt;</span> -->
     <input type="text" v-model="newTaskName" class="new-task-name" placeholder="Task Name" @keyup.enter="saveNewTask" /><br />
     <input type="button" value="Save" @click="saveNewTask" class="bg-blue-500 hover:bg-blue-700 text-white px-2 rounded" />
   </div>
@@ -19,7 +19,7 @@ export default {
   },
   data() {
     return {
-      showNewTaskArea: false,
+      isNewTaskShown: false,
       newTask: null,
       newTaskName: ""
     }
@@ -29,21 +29,22 @@ export default {
   	addNewTask(task, level, details) {
       this.newTask = { 
         ...task,
-        id: task.id,
         level: level,
         inserted: false
       };
-      this.showNewTaskArea = true;
+      this.isNewTaskShown = true;
+
       this.$refs.newTaskArea.style.top = parseInt(details.pos.bottom - 3) + "px";
       this.$refs.newTaskArea.style.left = parseInt(details.pos.left) + "px";
-      this.$refs.newTaskArea.style.width = details.cellWidth + "px";
+      this.$refs.newTaskArea.style.width = details.cellWidth ? details.cellWidth + "px" : "200px";
+
       this.$nextTick(() => {
         this.$refs.newTaskArea.children[1].focus()
       })
     },
 
     saveNewTask() {
-      this.showNewTaskArea = false;
+      this.isNewTaskShown = false;
       this.newTask.name = this.newTaskName;
 
       this.store.addTask(this.newTask);
@@ -55,7 +56,7 @@ export default {
     },
 
     hideNewTaskArea() {
-      this.showNewTaskArea = false;
+      this.isNewTaskShown = false;
     }
   }
 }

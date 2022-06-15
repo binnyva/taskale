@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
 import { cloneDeep } from 'lodash-es'
+import { v4 as uuid } from 'uuid';
 
 export const useStore = defineStore('main', {
   persist: true,
@@ -121,7 +122,9 @@ export const useStore = defineStore('main', {
     },
 
     addTask(task) {
-      if(typeof task.hue === undefined) task.hue = Math.floor(Math.random() * 360);
+      if(typeof task.hue == "undefined") task.hue = Math.floor(Math.random() * 360);
+      if(typeof task.id == "undefined") task.id = uuid();
+
       this.tasks.push(task)
     },
 

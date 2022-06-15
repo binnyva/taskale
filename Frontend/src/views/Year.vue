@@ -2,14 +2,14 @@
   <div class="year">
     <div class="header">
       <h1 class="text-3xl font-bold">
-        Year &gt; 2022
+        Year &gt; {{ year }}
       </h1>
     </div>
 
     <div class="content" ref="content">
-      <ProjectList :tasks="projects" :level="`year`"></ProjectList>
+      <ProjectList :tasks="projects" :level="`year`" :date="this.date"></ProjectList>
 
-      <CalendarYear date="2022-05-01" :tasks="tasks" :onNewTask="onNewTask"></CalendarYear>
+      <CalendarYear :date="this.date" :tasks="tasks" :onNewTask="onNewTask"></CalendarYear>
     </div>
   </div>
 
@@ -26,6 +26,7 @@
 </template>
 
 <script>
+import dayjs from "dayjs";
 import { useStore } from '../store.js'
 import ProjectList from "../components/ProjectList.vue"
 import CalendarYear from "../components/Calendar/CalendarYear.vue"
@@ -49,6 +50,8 @@ export default {
     return {
       showSampleTaskEntryArea: (this.store.getTotalTaskCount() === 0),
       sampleTasks: "Build a planning App\nTravel around the world",
+      date: "2022-01-01",
+      year: dayjs(this.date).format('YYYY')
     }
   },
 
@@ -70,17 +73,15 @@ export default {
 
     saveSampleTasks() {
       const sampleTasksLines = this.sampleTasks.split("\n");
-      let tempTasks = [];
+
       for(let i = 0; i < sampleTasksLines.length; i++) {
-        let id = i+20;
-        tempTasks.push({
-          id: id,
+        if(!sampleTasksLines[i].trim()) continue
+
+        this.store.addTask({
           name: sampleTasksLines[i].trim(),
           level: "year"
         })
       }
-
-      this.store.setTasks( tempTasks );
 
       this.showSampleTaskEntryArea = false
     },

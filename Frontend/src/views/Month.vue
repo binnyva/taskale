@@ -7,7 +7,7 @@
     </div>
 
     <div class="content" ref="content">
-      <ProjectList :tasks="projects" :level="`month`"></ProjectList>
+      <ProjectList :tasks="projects" :level="`month`" :date="this.date"></ProjectList>
 
       <CalendarMonth :date="date" :tasks="tasks" :onNewTask="onNewTask"></CalendarMonth>
     </div>

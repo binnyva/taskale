@@ -14,24 +14,34 @@
         </li>
       </ul>
     </div>
+    <div class="new-task">
+      <input v-if="this.isNewTaskShown" ref="newTaskField" type="text" v-model="newTaskName" placeholder="Task" @keyup.enter="saveNewTask" />
+      <input v-if="!this.isNewTaskShown" type="button" value="+" @click="showNewTaskField" class="bg-blue-500 hover:bg-blue-700 text-white px-2 rounded" />
+    </div>
   </div>
+  <NewTask ref="newTask"></NewTask>
 </template>
 
 <script>
 import { useStore } from '../store.js'
 import draggable from "vuedraggable";
 import TaskBlock from "./TaskBlock.vue"
+import NewTask from "./NewTask.vue"
 
 export default {
   name: "ProjectList",
-  props: ["tasks", "level"],
+  props: ["tasks", "level", "date"],
   components: {
     TaskBlock,
-    draggable
+    draggable,
+    NewTask
   },
   data() {
+    console.log(this.tasks, this.level, this.date)
     return {
-      showLevel: this.level
+      showLevel: this.level,
+      newTaskName: "",
+      isNewTaskShown: false
     }
   },
 
@@ -55,10 +65,26 @@ export default {
   },
 
   methods: {
+    showNewTaskField() {
+      this.isNewTaskShown = true;
+
+      this.$nextTick(() => {
+        this.$refs.newTaskField.focus()
+      })
+    },
+    saveNewTask() {
+      this.isNewTaskShown = false;
+      this.store.addTask({ 
+        name: this.newTaskName, 
+        level: this.level,
+        from: this.date + " 00:00:00"
+      });
+      this.newTaskName = "";
+    },
+
     onClone( { id, name, hue } ) { // New element that's added to the Dropped array is created with this.
       // console.log(id,name)
       return {
-        id: id + 20, // :TODO: 0, maybe.
         name: name,
         inserted: true,
         hue: (hue + 1 > 360) ? 1 : hue + 1,
@@ -74,11 +100,17 @@ export default {
     min-height: 5rem;
     display: grid;
     grid-template-columns: 80% auto;
+    position: relative;
   }
   .level-list li {
     text-align: right;
   }
   .level-list li.active {
     font-weight: bold;
+  }
+  .new-task {
+    position: absolute;
+    bottom: 0.5rem;
+    left: 1rem;
   }
 </style>
