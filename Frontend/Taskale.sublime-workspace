@@ -631,6 +631,7 @@
 	},
 	"file_history":
 	[
+		"/mnt/x/Data/www/Projects/taskale/Frontend/src/components/Calendar/CalendarDateIndicator.vue",
 		"/mnt/x/Data/www/Projects/taskale/Frontend/src/main.js",
 		"/mnt/x/Data/www/Projects/taskale/Frontend/vite.config.js",
 		"/mnt/x/Data/www/Projects/taskale/Frontend/postcss.config.js",
@@ -757,8 +758,7 @@
 		"/home/binnyva/TODO Urgent.txt",
 		"/home/binnyva/Dropbox/MAD/Rewrite/Model_REST.txt",
 		"/home/binnyva/Dropbox/MAD/Rewrite/Model.txt",
-		"/home/binnyva/Dropbox/MAD/Rewrite/Process for creating REST API for existing software.txt",
-		"/home/binnyva/Dropbox/MAD/Rewrite/Rebuilding a Web App.txt"
+		"/home/binnyva/Dropbox/MAD/Rewrite/Process for creating REST API for existing software.txt"
 	],
 	"find":
 	{
@@ -779,6 +779,12 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"value",
+			"2022-05-01",
+			"showNewTaskArea",
+			"isNewTaskAreaShown",
+			"showNewTask",
+			"undefined",
 			"highlightTaskId",
 			"toRaw",
 			"state.ta",
@@ -900,13 +906,7 @@
 			"consecutive_credit",
 			"unit_count",
 			"state",
-			"Medi",
-			"Medium",
-			"GroupHierarchy",
-			"region",
-			"get_all_below",
-			"region",
-			"medium"
+			"Medi"
 		],
 		"highlight": true,
 		"in_selection": false,

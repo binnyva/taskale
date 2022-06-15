@@ -23,6 +23,7 @@
 </template>
 
 <script>
+import dayjs from "dayjs";
 import { useStore } from '../store.js'
 import draggable from "vuedraggable";
 import TaskBlock from "./TaskBlock.vue"
@@ -37,7 +38,6 @@ export default {
     NewTask
   },
   data() {
-    console.log(this.tasks, this.level, this.date)
     return {
       showLevel: this.level,
       newTaskName: "",
@@ -59,8 +59,23 @@ export default {
 
       return active
     },
+
+    // Shows only the task of this Level(year, month) and the currently active date range(2022, or Aug 2022 etc.)
     filteredTasks: function() {
-      return this.tasks.filter( value => value.level == this.showLevel || this.showLevel === 'all' )
+      return this.tasks.filter( task => {
+        if(this.showLevel === 'all') return true;
+
+        if(this.showLevel === task.level) {
+          if(this.showLevel === 'month') {
+            return dayjs(this.date).format("YYYY-MM") === dayjs(task.from).format("YYYY-MM")
+          
+          } else if(this.showLevel === 'year') {
+            return dayjs(this.date).format("YYYY") === dayjs(task.from).format("YYYY")
+          }
+        }
+
+        return false
+      })
     }
   },
 
